@@ -6,10 +6,29 @@ body {
 }
 
 header {
-    background-color: #007bff;
-    color: white;
+    background-image: url('logowebsite.jpg'); /* Set the background image */
+    background-size: cover; /* Cover the entire header */
+    background-position: center; /* Center the image */
+    color: white; /* Text color */
     text-align: center;
     padding: 20px 0;
+    position: relative; /* Position relative for pseudo-element */
+}
+
+header h1, header h2, header p {
+    position: relative; /* Position relative for text */
+    z-index: 1; /* Ensure text is above the background */
+}
+
+header::before {
+    content: ""; /* Create a pseudo-element */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    bottom: 0; /* Align to the bottom */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 0; /* Place it below the text */
 }
 
 .contact-button {
@@ -21,6 +40,8 @@ header {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    position: relative; /* Add this line */
+    z-index: 1; /* Ensure the button is above the overlay */
 }
 
 .contact-button:hover {
@@ -96,7 +117,6 @@ main {
     .service {
         flex: 1 1 calc(50% - 20px); /* 2 services per row on tablets */
     }
- ```css
 }
 
 @media (max-width: 480px) {
