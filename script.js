@@ -1,15 +1,17 @@
 document.querySelectorAll('.read-more').forEach(button => {
     button.addEventListener('click', () => {
-        const descriptionFull = button.previousElementSibling; // Ambil deskripsi penuh
-        if (descriptionFull.style.display === 'none' || descriptionFull.style.display === '') {
-            descriptionFull.style.display = 'block'; // Tampilkan deskripsi penuh
-            button.innerText = 'Read Less'; // Ubah teks tombol
+        const descriptionFull = button.previousElementSibling; // Full description
+        const descriptionShort = button.previousElementSibling.previousElementSibling; // Short description
+
+        // Toggle visibility of descriptions
+        descriptionFull.classList.toggle('visible');
+        descriptionShort.classList.toggle('hidden');
+
+        // Update button text based on visibility
+        if (descriptionFull.classList.contains('visible')) {
+            button.innerText = 'Read Less';
         } else {
-            descriptionFull.style.display = 'none'; // Sembunyikan deskripsi penuh
-            button.innerText = 'Read More'; // Ubah teks tombol kembali
+            button.innerText = 'Read More';
         }
-        
-        const descriptionShort = button.previousElementSibling.previousElementSibling; // Ambil deskripsi pendek
-        descriptionShort.style.display = 'none'; // Sembunyikan deskripsi pendek saat menampilkan yang penuh
     });
 });
