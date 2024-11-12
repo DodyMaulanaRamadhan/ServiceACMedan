@@ -1,100 +1,150 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    line-height: 1.6;
 }
 
+h1, h2, h3, p {
+    margin: 0;
+}
+
+/* Header Styles */
 header {
-    background-image: url('logowebsite.jpg'); /* Set the background image */
-    background-size: cover; /* Cover the entire header */
-    background-position: center; /* Center the image */
-    color: white; /* Text color */
+    background-image: url('logowebsite.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
     text-align: center;
-    padding: 20px 0;
-    position: relative; /* Position relative for pseudo-element */
+    padding: 40px 0;
+    position: relative;
 }
 
-header h1, header h2, header p {
-    position: relative; /* Position relative for text */
-    z-index: 1; /* Ensure text is above the background */
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+header h2 {
+    font-size: 2em;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+header p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 header::before {
-    content: ""; /* Create a pseudo-element */
-    position: absolute; /* Position it absolutely */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
-    right: 0; /* Align to the right */
-    bottom: 0; /* Align to the bottom */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-    z-index: 0; /* Place it below the text */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.text-background {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+}
+
+.button-container {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Add margin to separate from text */
 }
 
 .contact-button {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
+    display: inline-block; /* Change to inline-block to allow width control */
+    margin: 0 auto; /* Center the button */
+    padding: 12px 24px; /* Adjust padding as needed */
     background-color: #28a745;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
-    position: relative; /* Add this line */
-    z-index: 1; /* Ensure the button is above the overlay */
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
+    z-index: 1;
+    font-size: 1em; /* Adjust font size as needed */
+    text-align: center; /* Center the text in the button */
+    max-width: 200px; /* Set a maximum width for the button */
+    width: 100%; /* Allow the button to take full width up to max-width */
 }
 
 .contact-button:hover {
     background-color: #218838;
+    transform: scale(1.05);
 }
 
+/* Main Styles */
 main {
     padding: 20px;
 }
 
 .services-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
+/* Service Card Styles */
 .service {
     background-color: white;
     margin: 10px;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 280px; /* Adjusted for better responsiveness */
-    flex: 1 1 calc(33.333% - 20px); /* Responsive sizing */
-    box-sizing: border-box;
-    transition: transform 0.3s;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
 .service:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .service img {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.service img:hover {
+    transform: scale(1.05);
+}
+
+.service h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
 }
 
 .description {
-    display: none; /* Hide full description by default */
+    display: none;
 }
 
 .description.visible {
-    display: block; /* Show full description when visible */
+    display: block;
 }
 
 .description.short {
-    display: block; /* Show short description */
+    display: block;
 }
 
 .description.hidden {
-    display: none; /* Hide short description when full is visible */
+    display: none;
 }
 
 .read-more {
@@ -105,22 +155,216 @@ main {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .read-more:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-/* Media Queries for responsive design */
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header h2 {
+        font-size: 1.5em;
+    }
+
+    .contact-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
     .service {
-        flex: 1 1 calc(50% - 20px); /* 2 services per row on tablets */
+        padding: 15px;
     }
 }
 
 @media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header h2 {
+        font-size: 1.2em;
+    }
+
+    .contact-button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
     .service {
-        flex: 1 1 100%; /* 1 service per row on mobile */
+        padding: 10px;
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Applying Animations */
+header, .service {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.service {
+    animation: slideIn 0.5s ease-in-out;
+}
+
+/* Button Styles */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Additional Styles for Better UX */
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Card Flip Animation */
+.card {
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.card-front {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-back {
+    background-color: #007bff;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f4f4f4;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
     }
 }
