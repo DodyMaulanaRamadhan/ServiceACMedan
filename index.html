@@ -3,114 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bujum AC Medan - Jasa Service AC Terpercaya</title>
+    <title>Bujum AC Medan - Jasa Profesional Service AC</title>
     <meta name="description" content="Layanan service AC Medan terbaik, termasuk cuci AC, isi freon, dan bongkar pasang AC. Hubungi kami untuk layanan cepat dan profesional.">
-    <link rel="website icon" type="jpg" href="logowebsite.jpg">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-blue: #0066cc;
+            --dark-bg: #0a0a0a;
+            --accent: #00a8ff;
+            --text-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('logowebsite.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: slideDown 1s ease;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--accent), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 168, 255, 0.2);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        /* Price Tag */
+        .price-tag {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 1rem 0;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Read More Button */
+        .read-more {
+            background: none;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .read-more:hover {
+            background: var(--accent);
+            color: var(--dark-bg);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                padding: 2rem 1rem;
+            }
+        }
+
+        .hidden-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .visible-content {
+            max-height: 500px;
+        }
+
+        /* Feature Highlights */
+        .features-bar {
+            background: linear-gradient(to right, var(--primary-blue), var(--accent));
+            padding: 2rem;
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-item {
+            padding: 1rem;
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <header class="main-header">
+        <nav>
+            <div class="header-content">
+                <h1 class="main-title">Bujum AC Medan</h1>
+                <p class="tagline">Layanan Profesional Service AC Bergaransi</p>
+                
+                <div class="features-bar">
+                    <div class="feature-item">
+                        <i class="fas fa-tools"></i>
+                        <h3>Teknisi Berpengalaman</h3>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-clock"></i>
+                        <h3>Layanan 24 Jam</h3>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Bergaransi Resmi</h3>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <header>
-    <div class="text-background">
-        <h1>Service AC Medan</h1>
-        <h2>Bujum AC</h2>
-        <p>Jasa Cuci AC dan Perawatan Profesional</p>
-    </div>
-    <div class="button-container">
-        <a href="https://wa.me/c/6281396490680" class="contact-button">
-            <i class="fab fa-whatsapp"></i> Hubungi 081396490680
-        </a>
-    </div>
-</header>
+    <main>
+        <div class="services-grid">
+            <!-- Service Items -->
+            <article class="service-card">
+                <img src="cuci-ac.jpg" alt="Cuci AC" class="service-image">
+                <h2>Cuci AC Standar</h2>
+                <div class="price-tag">Rp 60.000</div>
+                <p class="short-desc">Pembersihan dasar unit AC termasuk filter dan evaporator...</p>
+                <div class="hidden-content">
+                    <p>Layanan lengkap termasuk pemeriksaan komponen utama dan pembersihan menyeluruh dengan teknologi steam modern.</p>
+                </div>
+                <button class="read-more">Selengkapnya</button>
+            </article>
 
-    	<main>
-        <div class="services-container">
-            <section class="service">
-                <img src="cuci-ac.jpg" alt="Cuci AC">
-                <h2>Cuci AC - Rp 60.000</h2>
-                <p class="description short">Layanan ini memberikan pembersihan dasar untuk unit AC Anda. Prosesnya meliputi pembersihan filter,...</p>
-                <p class="description full">Layanan ini memberikan pembersihan dasar untuk unit AC Anda. Prosesnya meliputi pembersihan filter, evaporator, dan bagian luar unit. Dengan harga terjangkau, layanan ini membantu menjaga kebersihan dan efisiensi pendinginan AC Anda.</p>
-                <button class="read-more">Read More</button>
-            </section>
-		
-	    <section class="service">
-            	<img src="cuci-xtra-ac.jpg" alt="Cuci Xtra AC">
-            	<h2>Cuci Xtra AC - Rp 150.000</h2>
-            	<p class="description short">Layanan cuci Xtra menawarkan pembersihan yang lebih mendalam dibandingkan dengan cuci biasa....</p>
-            	<p class="description full">Layanan cuci Xtra menawarkan pembersihan yang lebih mendalam dibandingkan dengan cuci biasa. Selain pembersihan semua komponen, layanan ini juga mencakup desinfeksi untuk menghilangkan bakteri dan jamur yang dapat menyebabkan masalah kesehatan. Ideal untuk menjaga kualitas udara di dalam ruangan.</p>
-            	<button class="read-more">Read More</button>
-        </section>
+            <!-- Tambahkan service card lainnya di sini -->
 
-<section class="service">
-            <img src="isi-freonPSI.jpg" alt="Isi Freon">
-            <h2>Isi Freon (10 psi sd 20 psi) - Rp 150.000</h2>
-            <p class="description short">Layanan ini dirancang untuk mengisi freon pada tekanan rendah (10 psi hingga 20 psi)....</p>
-            <p class="description full">Layanan ini dirancang untuk mengisi freon pada tekanan rendah (10 psi hingga 20 psi). Freon yang cukup sangat penting untuk memastikan AC berfungsi dengan baik dan mendinginkan ruangan secara efektif. Pastikan AC Anda selalu dalam kondisi optimal dengan layanan ini.</p>
-            <button class="read-more">Read More</button>
-        </section>
-
-	<section class="service">
-            <img src="isi-freon.jpg" alt="Isi Freon">
-            <h2>Isi Freon - Rp 250.000</h2>
-            <p class="description short">Layanan isi freon ini mencakup pengisian freon pada tingkat yang lebih tinggi, ideal....</p>
-            <p class="description full">Layanan isi freon ini mencakup pengisian freon pada tingkat yang lebih tinggi, ideal untuk unit AC yang mengalami kebocoran atau kurang freon secara signifikan. Dengan harga yang kompetitif, Anda bisa memastikan AC Anda kembali berfungsi dengan efisien.</p>
-            <button class="read-more">Read More</button>
-        </section>
-
-	<section class="service">
-            <img src="bongkar-pasang-ac.jpg" alt="Bongkar Pasang AC">
-            <h2>Bongkar Pasang AC - Rp 350.000</h2>
-            <p class="description short">Layanan bongkar pasang AC ini cocok bagi Anda yang ingin memindahkan unit AC ke lokasi....</p>
-            <p class="description full">Layanan bongkar pasang AC ini cocok bagi Anda yang ingin memindahkan unit AC ke lokasi baru atau melakukan perbaikan besar. Tim teknisi kami akan melakukan proses bongkar dan pasang dengan hati-hati, memastikan tidak ada kerusakan pada unit.</p>
-            <button class="read-more">Read More</button>
-        </section>
-
-	<section class="service">
-            <img src="bongkar-ac.jpg" alt="Bongkar AC">
-            <h2>Bongkar AC - Rp 150.000</h2>
-            <p class="description short">Jika Anda perlu membongkar unit AC tanpa memasangnya kembali, layanan ini adalah pilihan tepat....</p>
-            <p class="description full">Jika Anda perlu membongkar unit AC tanpa memasangnya kembali, layanan ini adalah pilihan tepat. Kami akan melakukan pembongkaran dengan aman dan efisien, sehingga Anda bisa melanjutkan proyek atau perbaikan lainnya.</p>
-            <button class="read-more">Read More</button>
-        </section>
-
-	<section class="service">
-            <img src="pasang-ac.jpg" alt="Pasang AC">
-            <h2>Pasang AC - Rp 250.000</h2>
-            <p class="description short">Layanan pasang AC ini mencakup instalasi unit baru atau penggantian unit lama dengan yang baru....</p>
-            <p class="description full">Layanan pasang AC ini mencakup instalasi unit baru atau penggantian unit lama dengan yang baru. Tim kami berpengalaman dalam pemasangan berbagai jenis AC, menjamin bahwa semua komponen terpasang dengan benar dan berfungsi optimal.</p>
-            <button class="read-more">Read More</button>
-        </section>
-
-	<section class="service">
-            <img src="Ganti-Kapasitor.jpg" alt="Ganti Kapasitor">
-            <h2>Ganti Kapasitor - Rp 250.000</h2>
-            <p class="description short">Kapasitor adalah komponen penting dalam sistem pendingin Anda. Jika AC Anda tidak menyala atau ber....</p>
-            <p class="description full">Kapasitor adalah komponen penting dalam sistem pendingin Anda. Jika AC Anda tidak menyala atau berfungsi dengan baik, ganti kapasitor mungkin diperlukan. Layanan ini mencakup penggantian kapasitor yang rusak dengan yang baru agar AC kembali beroperasi normal.</p>
-            <button class="read-more">Read More</button>
-        </section>
-
-	<section class="service">
-            <img src="Vacum.jpg" alt="Vacum">
-            <h2>Vacum - Rp 150.000</h2>
-            <p class="description short">Proses vakum penting sebelum mengisi freon baru ke dalam sistem pendingin untuk menghilangkan kelemba....</p>
-            <p class="description full">Proses vakum penting sebelum mengisi freon baru ke dalam sistem pendingin untuk menghilangkan kelembapan dan udara dari sistem. Layanan vacum kami memastikan bahwa sistem Anda siap menerima freon baru dan berfungsi secara efisien.</p>
-            <button class="read-more">Read More</button>
-        </section>
-
-	<section class="service">
-            <img src="others.jpg" alt="Ganti Pipa dan Perbaikan Lainnya">
-            <h2>Ganti Pipa dan Perbaikan Lainnya</h2>
-            <p class="description short">Layanan ini mencakup penggantian pipa pendingin yang bocor atau rusak serta perbaikan komponen lain dalam....</p>
-            <p class="description full">Layanan ini mencakup penggantian pipa pendingin yang bocor atau rusak serta perbaikan komponen lain dalam sistem AC Anda. Tim teknisi kami akan melakukan pemeriksaan menyeluruh untuk menentukan masalah dan memberikan solusi terbaik agar AC Anda kembali optimal.</p>
-            <button class="read-more">Read More</button>
-        </section>
-
-
-            <!-- Repeat for other services... -->
         </div>
+
+        <a href="https://wa.me/6281396490680" class="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        // Toggle Service Details
+        document.querySelectorAll('.read-more').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const card = e.target.closest('.service-card');
+                const hiddenContent = card.querySelector('.hidden-content');
+                hiddenContent.classList.toggle('visible-content');
+                
+                button.textContent = hiddenContent.classList.contains('visible-content') 
+                    ? 'Tutup' 
+                    : 'Selengkapnya';
+            });
+        });
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Hover Effect for Service Cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+        });
+    </script>
 </body>
 </html>
