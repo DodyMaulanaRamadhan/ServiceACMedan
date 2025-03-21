@@ -195,6 +195,7 @@
             
             .services-grid {
                 padding: 2rem 1rem;
+                grid-template-columns: 1fr;
             }
         }
 
@@ -228,6 +229,12 @@
             margin-bottom: 1rem;
             color: var(--text-light);
         }
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -258,7 +265,7 @@
 
     <main>
         <div class="services-grid">
-            <!-- Service Items -->
+            <!-- Service 1 -->
             <article class="service-card">
                 <img src="cuci-ac.jpg" alt="Cuci AC" class="service-image">
                 <h2>Cuci AC Standar</h2>
@@ -270,11 +277,116 @@
                 <button class="read-more">Selengkapnya</button>
             </article>
 
-            <!-- Tambahkan service card lainnya di sini -->
+            <!-- Service 2 -->
+            <article class="service-card">
+                <img src="cuci-xtra-ac.jpg" alt="Cuci Xtra AC" class="service-image">
+                <h2>Cuci Xtra AC</h2>
+                <div class="price-tag">Rp 150.000</div>
+                <p class="short-desc">Pembersihan mendalam dengan desinfeksi bakteri dan jamur...</p>
+                <div class="hidden-content">
+                    <p>Layanan premium termasuk pembersihan kompresor dan kondensor, serta penggunaan antiseptik khusus untuk kualitas udara lebih bersih.</p>
+                </div>
+                <button class="read-more">Selengkapnya</button>
+            </article>
 
+            <!-- Service 3 -->
+            <article class="service-card">
+                <img src="isi-freonPSI.jpg" alt="Isi Freon" class="service-image">
+                <h2>Isi Freon 10-20 PSI</h2>
+                <div class="price-tag">Rp 150.000</div>
+                <p class="short-desc">Pengisian freon tekanan rendah untuk AC rumah tangga...</p>
+                <div class="hidden-content">
+                    <p>Termasuk pemeriksaan kebocoran dan pengecekan tekanan sistem menggunakan alat digital.</p>
+                </div>
+                <button class="read-more">Selengkapnya</button>
+            </article>
+
+            <!-- Service 4 -->
+            <article class="service-card">
+                <img src="isi-freon.jpg" alt="Isi Freon" class="service-image">
+                <h2>Isi Freon Lengkap</h2>
+                <div class="price-tag">Rp 250.000</div>
+                <p class="short-desc">Pengisian freon komplit dengan tekanan optimal...</p>
+                <div class="hidden-content">
+                    <p>Layanan profesional termasuk vakum sistem dan pengisian freon sesuai kapasitas pabrik.</p>
+                </div>
+                <button class="read-more">Selengkapnya</button>
+            </article>
+
+            <!-- Service 5 -->
+            <article class="service-card">
+                <img src="bongkar-pasang-ac.jpg" alt="Bongkar Pasang AC" class="service-image">
+                <h2>Bongkar Pasang AC</h2>
+                <div class="price-tag">Rp 350.000</div>
+                <p class="short-desc">Relokasi unit AC dengan garansi instalasi...</p>
+                <div class="hidden-content">
+                    <p>Termasuk pengecekan ulang sistem pendingin dan garansi 30 hari pasca instalasi.</p>
+                </div>
+                <button class="read-more">Selengkapnya</button>
+            </article>
+
+            <!-- Service 6 -->
+            <article class="service-card">
+                <img src="bongkar-ac.jpg" alt="Bongkar AC" class="service-image">
+                <h2>Bongkar AC</h2>
+                <div class="price-tag">Rp 150.000</div>
+                <p class="short-desc">Layanan pembongkaran aman dan profesional...</p>
+                <div class="hidden-content">
+                    <p>Proses pembongkaran dengan teknik khusus untuk mencegah kerusakan komponen.</p>
+                </div>
+                <button class="read-more">Selengkapnya</button>
+            </article>
+
+            <!-- Service 7 -->
+            <article class="service-card">
+                <img src="pasang-ac.jpg" alt="Pasang AC" class="service-image">
+                <h2>Pasang AC Baru</h2>
+                <div class="price-tag">Rp 250.000</div>
+                <p class="short-desc">Instalasi unit AC baru dengan garansi...</p>
+                <div class="hidden-content">
+                    <p>Termasuk pemasangan bracket, pipa tembok, dan pengaturan sistem drainase.</p>
+                </div>
+                <button class="read-more">Selengkapnya</button>
+            </article>
+
+            <!-- Service 8 -->
+            <article class="service-card">
+                <img src="Ganti-Kapasitor.jpg" alt="Ganti Kapasitor" class="service-image">
+                <h2>Ganti Kapasitor</h2>
+                <div class="price-tag">Rp 250.000</div>
+                <p class="short-desc">Penggantian komponen kapasitor rusak...</p>
+                <div class="hidden-content">
+                    <p>Menggunakan kapasitor original dengan garansi 6 bulan.</p>
+                </div>
+                <button class="read-more">Selengkapnya</button>
+            </article>
+
+            <!-- Service 9 -->
+            <article class="service-card">
+                <img src="Vacum.jpg" alt="Vacum" class="service-image">
+                <h2>Vakum Sistem</h2>
+                <div class="price-tag">Rp 150.000</div>
+                <p class="short-desc">Pembersihan sistem dari udara dan kelembaban...</p>
+                <div class="hidden-content">
+                    <p>Proses vakum menggunakan mesin khusus untuk persiapan pengisian freon.</p>
+                </div>
+                <button class="read-more">Selengkapnya</button>
+            </article>
+
+            <!-- Service 10 -->
+            <article class="service-card">
+                <img src="others.jpg" alt="Perbaikan Lainnya" class="service-image">
+                <h2>Perbaikan Komponen</h2>
+                <div class="price-tag">Hubungi Kami</div>
+                <p class="short-desc">Servis komponen AC lainnya...</p>
+                <div class="hidden-content">
+                    <p>Termasuk perbaikan pipa, penggantian fan motor, dan perawatan kompresor.</p>
+                </div>
+                <button class="read-more">Selengkapnya</button>
+            </article>
         </div>
 
-        <a href="https://wa.me/6281396490680" class="whatsapp-float">
+        <a href="https://wa.me/6281396490680" class="whatsapp-float" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </main>
@@ -310,7 +422,7 @@
             observer.observe(card);
         });
 
-        // Hover Effect for Service Cards
+        // Hover Effect
         document.querySelectorAll('.service-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
@@ -318,6 +430,16 @@
                 const y = e.clientY - rect.top;
                 card.style.setProperty('--x', `${x}px`);
                 card.style.setProperty('--y', `${y}px`);
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
